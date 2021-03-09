@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Drill
+{% endblock %}
+
+{% block main %}
+    <div class="border border-primary rounded-top shadow" style="background-color: #111;">
+        <h2>Add a new drill</h2>
+    </div>
+
+    <div class="border border-primary rounded-bottom shadow">
+    <form action="/new_drill" method="post">
+        <div class="form-group">
+            <label for="drill_name">Drill Name</label>
+            <input autocomplete="off" autofocus class="form-control" name="long_name" id="drill_name" type="text">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" name="description" id="description" rows=10></textarea>
+        </div>
+        <div class="form-group">
+            <label for="diagram">Diagram</label>
+            <input class="form-control" name="diagram" id="diagram" type="text">
+        </div>
+        <div class="form-group">
+            <label for="video">Link to Video (optional)</label>
+            <input class="form-control" name="video" id="video" type="text">
+        </div>
+        <h3>Drill Attributes</h3>
+                <div class="row">
+            <div class="col">
+                <select class="custom-select" name="minimum_players">
+                    <option selected>Minimum Players</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="99">No Minimum</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="custom-select" name="maximum_players">
+                    <option selected>Maximum Players</option>
+                    <option value="0">No Maximum</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="custom-select" name="assistants_reqd">
+                    <option selected>Assistants Required</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="space-above">
+                    <h5>Drill Goal</h5>
+                </div>
+                <div class="form-group" id="goal">
+                    <input class="form-control" name="goal_qty" placeholder="Number" type="text">
+                    <input class="form-control" name="goal_units" placeholder="Units" type="text">
+                    <small id="goalHelpBlock" class="form-text text-muted">
+                        Input the goal of the drill, for example: "30" "Balls in the Catch-it" or "15" "Points"
+                    </small>
+                </div>
+            </div>
+        </div>
+        <h5>Drill Type</h5>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="typeCheckbox1" value="warm_up">
+            <label class="form-check-label" for="typeCheckbox1">Warm Up</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="typeCheckbox2" value="skill">
+            <label class="form-check-label" for="typeCheckbox2">Skill</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="typeCheckbox3" value="conditioning">
+            <label class="form-check-label" for="typeCheckbox3">Conditioning</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="typeCheckbox4" value="game">
+            <label class="form-check-label" for="typeCheckbox4">Fun & Games</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="typeCheckbox5" value="rotations">
+            <label class="form-check-label" for="typeCheckbox5">Rotations</label>
+        </div>
+        <h5>Share Publicly?</h5>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="share" id="shareRadio0" value="0">
+            <label class="form-check-label" for="shareRadio0">
+            Do Not Share
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="share" id="shareRadio1" value="1" checked>
+            <label class="form-check-label" for="shareRadio1">
+            Share
+            </label>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Add Drill</button>
+        </div>
+    </form>
+    </div>
+{% endblock %}
+
+long_name, description, diagram, minimum_players, maximum_players, assistants_reqd,
+type,  video, goal_qty, goal_units, skill , shareable

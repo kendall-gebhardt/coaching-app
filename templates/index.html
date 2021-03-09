@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h2>Home</h2>
+    <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Coach: {{ coach }}</p>
+                </div>
+                <div class="col">
+                    <p> Team: {{ team }}</p>
+                </div>
+                <div class="col">
+                    <form action="/new_practice" method="get">
+                        <button class="btn btn-primary" type="submit">New Practice</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Objective</th>
+                <th scope="col">Skills</th>
+                <th scope="col">Games</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for practice in past_practices %}
+                <tr>
+                    <th scope="row">{{ practice["date"] }}</th>
+                    <td>{{ practice["objective"] }}</td>
+                    <td>{{ practice["skill_drills"] }}</td>
+                    <td>{{ practice["game_drills"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
